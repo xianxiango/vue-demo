@@ -14,9 +14,9 @@ store.commit('SET_HOST_CONFIG', hostConfig)
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  // if (!document.title && hostConfig) {
-  //   document.title = hostConfig.title
-  // }
+  if (!document.title && hostConfig) {
+    document.title = hostConfig.title
+  }
   // if (!isLogin && to.path !== '/login') {
   //   next('/login')
   //   return false

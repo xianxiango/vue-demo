@@ -92,7 +92,16 @@ div:focus {
   .main-container {
     min-height: 100%;
     transition: margin-left .28s;
-    margin-left: 180px;
+    margin: 0 auto;
+    width: 1200px;
+  }
+
+  .menu-wrapper {
+    margin: 0 auto;
+    width: 1200px;
+  }
+  .banner-box{
+    height: 450px;
   }
 
   // 侧边栏
@@ -498,4 +507,18 @@ div:focus {
   border: 1px solid #ebebeb;
   border-radius: 10px;
   // box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
+}
+
+
+.el-menu--horizontal .menu-wrapper .el-menu-item {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  margin: 0;
+  border-bottom: 2px solid transparent;
+  color: #909399;
+}
+
+.el-menu--horizontal .menu-wrapper>.el-submenu {
+  float: left;
 }

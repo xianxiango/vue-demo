@@ -12,7 +12,7 @@ export const constantRouter = [
     component: Main,
     redirect: 'home',
     meta: {
-      title: '仪表盘',
+      title: '首页',
       icon: 'dashboard'
     },
     children: [{
@@ -20,16 +20,16 @@ export const constantRouter = [
       component: _import('home/Home'),
       name: 'home',
       meta: {
-        title: '仪表盘'
+        title: '首页'
       }
     }]
   },
   {
-    path: '/login',
+    path: '',
     component: Main,
     redirect: 'login',
     meta: {
-      title: 'test',
+      title: '学院简介',
       icon: 'dashboard'
     },
     children: [{
@@ -37,16 +37,10 @@ export const constantRouter = [
       component: _import('login/Login'),
       name: 'login',
       meta: {
-        title: 'test'
+        title: '学院简介'
       }
     }]
   },
-  // {
-  //   path: '/login',
-  //   name: 'login',
-  //   hidden: true,
-  //   component: _import('login/Login')
-  // }
 ]
 
 export const asyncRouter = [
