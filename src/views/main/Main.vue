@@ -1,24 +1,33 @@
 <template>
   <div class="app-wrapper" :class="classObj">
-    <div class="header" style="height:100px">
-
-    </div>
+    <div class="header" style="height:100px"></div>
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div>
     <!-- <el-scrollbar class="sidebar-container" wrapClass="scrollbar-wrapper"> -->
-      <el-menu
-        mode="horizontal"
-        :show-timeout="200"
-        :default-active="$route.path"
-        :collapse="isCollapse"
-        background-color="#304156"
-        text-color="#bfcbd9"
-        active-text-color="#409EFF"
-        :unique-opened="true"
-      >
-        <sidebar-item :routes="routers"></sidebar-item>
-      </el-menu>
+    <el-menu
+      mode="horizontal"
+      :show-timeout="200"
+      :default-active="$route.path"
+      :collapse="isCollapse"
+      background-color="#304156"
+      text-color="#bfcbd9"
+      active-text-color="#409EFF"
+      :unique-opened="true"
+    >
+      <sidebar-item :routes="routers"></sidebar-item>
+    </el-menu>
     <!-- </el-scrollbar> -->
-
+    <div class="banner-box">
+      <!-- <el-carousel :interval="4000" type="card" height="450px">
+        <el-carousel-item v-for="item in 6" :key="item">
+          <h3 class="medium">{{ item }}</h3>
+        </el-carousel-item>
+      </el-carousel>-->
+      <el-carousel :interval="5000" arrow="always" height="450px">
+        <el-carousel-item v-for="item in 4" :key="item">
+          <h3>{{ item }}</h3>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
     <div class="main-container">
       <!-- <el-menu class="navbar" mode="horizontal">
         <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
@@ -51,13 +60,10 @@
             <router-view></router-view>
           </keep-alive>
         </transition>-->
-        <div class="banner-box">
 
-        </div>
         <router-view></router-view>
       </section>
     </div>
-   
   </div>
 </template>
 
@@ -157,8 +163,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
-
 .app-wrapper {
   position: relative;
   height: 100%;
@@ -218,5 +222,36 @@ export default {
       margin: 0 10px;
     }
   }
+}
+// .el-carousel__item h3 {
+//   color: #475669;
+//   font-size: 14px;
+//   opacity: 0.75;
+//   line-height: 450px;
+//   margin: 0;
+// }
+
+// .el-carousel__item:nth-child(2n) {
+//   background-color: #99a9bf;
+// }
+
+// .el-carousel__item:nth-child(2n + 1) {
+//   background-color: #d3dce6;
+// }
+
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 450px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>
