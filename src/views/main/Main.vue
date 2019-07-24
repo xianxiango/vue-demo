@@ -64,6 +64,19 @@
         <router-view></router-view>
       </section>
     </div>
+    <el-backtop target=".app" :bottom="100">
+      <div
+        style="{
+        height: 100%;
+        width: 100%;
+        background-color: #f2f5f6;
+        box-shadow: 0 0 6px rgba(0,0,0, .12);
+        text-align: center;
+        line-height: 40px;
+        color: #1989fa;
+      }"
+      >UP</div>
+    </el-backtop>
   </div>
 </template>
 
@@ -72,16 +85,16 @@ import md5 from "md5";
 import Cookies from "js-cookie";
 import { fetchData } from "@/api";
 import ResizeMixin from "@/mixins/resize";
-import TagsView from "@/components/TagsView";
-import Hamburger from "@/components/Hamburger";
-import Breadcrumb from "@/components/Breadcrumb";
+// import TagsView from "@/components/TagsView";
+// import Hamburger from "@/components/Hamburger";
+// import Breadcrumb from "@/components/Breadcrumb";
 import SidebarItem from "@/components/Sidebar";
 export default {
   name: "Main",
   components: {
-    TagsView,
-    Hamburger,
-    Breadcrumb,
+    // TagsView,
+    // Hamburger,
+    // Breadcrumb,
     SidebarItem
   },
   mixins: [ResizeMixin],
@@ -117,48 +130,7 @@ export default {
       return this.$store.state.noCachedViews;
     }
   },
-  methods: {
-    handleClickOutside() {
-      this.$store.dispatch("closeSideBar", { withoutAnimation: false });
-    },
-    // 切换侧边栏
-    toggleSideBar() {
-      this.$store.dispatch("toggleSideBar");
-    },
-    // 退出登录
-    exit() {
-      fetchData("adminLogout").then(user => {
-        if (user) {
-          Cookies.remove("auth");
-          window.location.href = `${window.location.origin}/login`;
-        }
-      });
-    },
-    // 修改密码
-    submitResetPassword() {
-      if (!this.oldPsw || !this.newPsw) {
-        this.$message.info("请输入密码");
-        return false;
-      }
-      const auth = Cookies.get("auth");
-      if (!auth) {
-        this.$message.info("账号异常、请重新登录");
-        return false;
-      }
-      const temp = auth.split("|");
-      fetchData("adminResetPassword", {
-        id: temp[0],
-        old_psw: md5(this.oldPsw),
-        new_psw: md5(this.newPsw)
-      }).then(data => {
-        if (data) {
-          Cookies.remove("auth");
-          Cookies.remove("password");
-          window.location.href = `${window.location.origin}/login`;
-        }
-      });
-    }
-  }
+  methods: {}
 };
 </script>
 
