@@ -1,6 +1,6 @@
 <template>
   <div class="menu-wrapper">
-    <template v-for="item in routes" v-if="!item.hidden&&item.children">
+    <template v-for="item in routes">
       <!-- <router-link v-if="item.children.length==0" :to="item.path"
         :key="item.name">
         <el-menu-item :index="item.path" :class="{'submenu-title-noDropdown':!isNest}">
@@ -83,6 +83,6 @@ export default {
 <style lang="less" scoped>
 .menu-wrapper {
   margin: 0 auto;
-  width: 1200px;
+  width: 1000px;
 }
 </style>

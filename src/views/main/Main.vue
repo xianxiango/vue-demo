@@ -79,7 +79,16 @@
       >UP</div>
     </el-backtop>
 
-    <div class="footer" style="height:100px"></div>
+    <div class="footer margin-top">
+      <div class="footer-box">
+        <div class="footer-content"></div>
+        <div class="footer-content">
+          <div>联系人：李小姐</div>
+          <div>咨询热线：020-29807360 13719430808 QQ:269952924 微信：eda_lee</div>
+          <div>地址：广州市海珠区艺苑南路13号布衣港电商产业园8栋202（客村地铁D出口） 上海网站建设</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -170,95 +179,21 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.app-wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
+.footer {
+  .footer-box {
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
   }
 }
-
-.drawer-bg {
-  background: #000;
-  opacity: 0.3;
-  width: 100%;
-  top: 0;
-  height: 100%;
-  position: absolute;
-  z-index: 999;
-}
-
-.navbar {
-  height: 50px;
-  line-height: 50px;
-  border-radius: 0px !important;
-  .hamburger-container {
-    line-height: 58px;
-    height: 50px;
-    float: left;
-    padding: 0 10px;
+.footer-content {
+  div {
+    text-align: right;
   }
-  .breadcrumb-container {
-    float: left;
-  }
-  .right-menu {
-    float: right;
-    height: 100%;
-    padding-right: 20px;
-    &:focus {
-      outline: none;
-    }
-    .right-menu-item {
-      display: inline-block;
-      margin: 0 8px;
-      vertical-align: middle;
-    }
-    .screenfull {
-      height: 20px;
-    }
-    .exit {
-      display: inline-block;
-      cursor: pointer;
-      fill: #5a5e66;
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin: 0 10px;
-    }
-  }
-}
-// .el-carousel__item h3 {
-//   color: #475669;
-//   font-size: 14px;
-//   opacity: 0.75;
-//   line-height: 450px;
-//   margin: 0;
-// }
-
-// .el-carousel__item:nth-child(2n) {
-//   background-color: #99a9bf;
-// }
-
-// .el-carousel__item:nth-child(2n + 1) {
-//   background-color: #d3dce6;
-// }
-
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 450px;
-  margin: 0;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
+  padding-top: 80px;
+  flex: 1;
+  color: rgb(191, 203, 217);
+  font-size: 12px;
+  line-height: 1.8;
 }
 </style>

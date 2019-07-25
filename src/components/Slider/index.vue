@@ -79,7 +79,7 @@ export default {
   },
   created() {
     let arr = [];
-    console.log(this.imgData);
+    // console.log(this.imgData);
     this.imgData.forEach(item => {
       arr.push(item);
     });
