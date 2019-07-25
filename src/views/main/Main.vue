@@ -7,7 +7,6 @@
       mode="horizontal"
       :show-timeout="200"
       :default-active="$route.path"
-      :collapse="isCollapse"
       background-color="#304156"
       text-color="#bfcbd9"
       active-text-color="#409EFF"
@@ -23,8 +22,10 @@
         </el-carousel-item>
       </el-carousel>-->
       <el-carousel :interval="5000" arrow="always" height="450px">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <h3>{{ item }}</h3>
+        <el-carousel-item v-for="item in demoData" :key="item.title">
+          <router-link to="student" :key="item.title">
+            <img :src="item.img" style="width:100%;height:100%" />
+          </router-link>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -77,6 +78,8 @@
       }"
       >UP</div>
     </el-backtop>
+
+    <div class="footer" style="height:100px"></div>
   </div>
 </template>
 
@@ -103,7 +106,39 @@ export default {
       oldPsw: "",
       newPsw: "",
       isResetPassword: false,
-      username: Cookies.get("username") ? Cookies.get("username") : "null"
+      username: Cookies.get("username") ? Cookies.get("username") : "null",
+      demoData: [
+        {
+          img:
+            "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
+          title: "图片1"
+        },
+        {
+          img:
+            "https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg",
+          title: "图片2"
+        },
+        {
+          img:
+            "https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
+          title: "图片3"
+        },
+        {
+          img:
+            "https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg",
+          title: "图片4"
+        },
+        {
+          img:
+            "https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg",
+          title: "图片5"
+        },
+        {
+          img:
+            "https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg",
+          title: "图片6"
+        }
+      ]
     };
   },
   computed: {

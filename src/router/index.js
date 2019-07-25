@@ -20,7 +20,7 @@ export const constantRouter = [
       component: _import('home/Home'),
       name: 'home',
       meta: {
-        title: '首页'
+        title: '首页',
       }
     }]
   },
@@ -37,7 +37,8 @@ export const constantRouter = [
       component: _import('synopsis/Synopsis'),
       name: 'synopsis',
       meta: {
-        title: '学院简介'
+        title: '学院简介',
+        // icon: 'dashboard'
       }
     }]
   },
@@ -54,7 +55,8 @@ export const constantRouter = [
       component: _import('practice/Practice'),
       name: 'practice',
       meta: {
-        title: '实践活动'
+        title: '实践活动',
+        // icon: 'dashboard'
       }
     }]
   }, {
@@ -70,7 +72,8 @@ export const constantRouter = [
       component: _import('course/Course'),
       name: 'course',
       meta: {
-        title: '课程设置'
+        title: '课程设置',
+        // icon: 'dashboard'
       }
     }]
   }, {
@@ -86,7 +89,8 @@ export const constantRouter = [
       component: _import('strength/Strength'),
       name: 'strength',
       meta: {
-        title: '师资实力'
+        title: '师资实力',
+        // icon: 'dashboard'
       }
     }]
   }, {
@@ -95,14 +99,15 @@ export const constantRouter = [
     redirect: 'teacher',
     meta: {
       title: '老师作品',
-      icon: 'dashboard'
+      icon: 'dashboard',
     },
     children: [{
       path: 'teacher',
       component: _import('teacher/Teacher'),
       name: 'teacher',
       meta: {
-        title: '老师作品'
+        title: '老师作品',
+        // icon: 'dashboard'
       }
     }]
   }, {
@@ -118,7 +123,8 @@ export const constantRouter = [
       component: _import('student/Student'),
       name: 'student',
       meta: {
-        title: '学生作品'
+        title: '学生作品',
+        // icon: 'dashboard'
       }
     }]
   }, {
@@ -134,7 +140,8 @@ export const constantRouter = [
       component: _import('business/Business'),
       name: 'business',
       meta: {
-        title: '业务范围'
+        title: '业务范围',
+        // icon: 'dashboard'
       }
     }]
   },
