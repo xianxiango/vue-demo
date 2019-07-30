@@ -17,28 +17,8 @@ router.beforeEach((to, from, next) => {
   if (!document.title && hostConfig) {
     document.title = hostConfig
   }
-  // if (!isLogin && to.path !== '/login') {
-  //   next('/login')
-  //   return false
-  // }
-  // if (!isLogin && to.path === '/login') {
-  //   next()
-  //   return false
-  // }
-  // if (isLogin && to.path === '/login') {
-  //   next('/')
-  //   return false
-  // }
-  // if (isLogin && store.state.modules.length === 0) {
-  //   store.dispatch('fetchAvailable').then(list => {
-  //     store.dispatch('createdRoutes', list).then(() => {
-  //       router.addRoutes(store.state.addRouters)
-  //       next({ ...to, replace: true })
-  //     })
-  //   })
-  // } else {
+  
   next()
-  // }
 })
 
 router.afterEach(() => {

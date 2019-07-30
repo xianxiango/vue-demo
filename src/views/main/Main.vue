@@ -11,24 +11,12 @@
       text-color="#bfcbd9"
       active-text-color="#409EFF"
       :unique-opened="true"
+      v-bind:class="{ 'topMenu': istopMenu}"
     >
       <sidebar-item :routes="routers"></sidebar-item>
     </el-menu>
     <!-- </el-scrollbar> -->
-    <div class="banner-box">
-      <!-- <el-carousel :interval="4000" type="card" height="450px">
-        <el-carousel-item v-for="item in 6" :key="item">
-          <h3 class="medium">{{ item }}</h3>
-        </el-carousel-item>
-      </el-carousel>-->
-      <el-carousel :interval="5000" arrow="always" height="450px">
-        <el-carousel-item v-for="item in demoData" :key="item.title">
-          <router-link to="student" :key="item.title">
-            <img :src="item.img" style="width:100%;height:100%" />
-          </router-link>
-        </el-carousel-item>
-      </el-carousel>
-    </div>
+    
     <div class="main-container">
       <!-- <el-menu class="navbar" mode="horizontal">
         <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
@@ -115,7 +103,7 @@ export default {
       oldPsw: "",
       newPsw: "",
       isResetPassword: false,
-      username: Cookies.get("username") ? Cookies.get("username") : "null",
+      istopMenu: false,
       demoData: [
         {
           img:
@@ -174,7 +162,25 @@ export default {
       return this.$store.state.noCachedViews;
     }
   },
-  methods: {}
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      var scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      // console.log(scrollTop);
+
+      if (scrollTop > 100) {
+        this.istopMenu = true;
+      } else {
+        this.istopMenu = false;
+      }
+    }
+  }
 };
 </script>
 
@@ -195,5 +201,11 @@ export default {
   color: rgb(191, 203, 217);
   font-size: 12px;
   line-height: 1.8;
+}
+.topMenu {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
 }
 </style>
