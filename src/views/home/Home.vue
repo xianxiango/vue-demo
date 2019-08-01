@@ -7,9 +7,9 @@
         </el-carousel-item>
       </el-carousel>-->
       <el-carousel :interval="5000" arrow="always" height="450px">
-        <el-carousel-item v-for="item in demoData" :key="item.title">
-          <router-link to="student" :key="item.title">
-            <img :src="item.img" style="width:100%;height:100%" />
+        <el-carousel-item v-for="item in banner" :key="item.Title">
+          <router-link to="student" :key="item.Title">
+            <img :src="item.Url" style="width:100%;height:100%" />
           </router-link>
         </el-carousel-item>
       </el-carousel>
@@ -27,7 +27,7 @@
               :type="'left'"
               margin="'20px'"
               :speed="20"
-              :imgData="demoData"
+              :imgData="excellent"
               :txtPos="['40%','10%']"
             ></slider-item>
           </el-card>
@@ -37,9 +37,9 @@
               <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
             </div>
             <el-row :gutter="20">
-              <el-col :span="8" v-for="url in demoData" :key="url.title" class="course-img">
-                <router-link to="student" :key="url.title">
-                  <el-image class="course" :key="url.title" :src="url.img" lazy>
+              <el-col :span="8" v-for="url in course" :key="url.Title" class="course-img">
+                <router-link to="student" :key="url.Title">
+                  <el-image class="course" :key="url.Title" :src="url.Url" lazy>
                     <div slot="placeholder" class="image-slot">
                       加载中
                       <span class="dot">...</span>
@@ -56,9 +56,9 @@
               <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
             </div>
             <el-row :gutter="20">
-              <el-col :span="8" v-for="url in demoData" :key="url.title" class="course-img">
-                <router-link to="student" :key="url.title">
-                  <el-image class="course" :key="url.title" :src="url.img" lazy>
+              <el-col :span="8" v-for="url in student" :key="url.Title" class="course-img">
+                <router-link to="student" :key="url.Title">
+                  <el-image class="course" :key="url.Title" :src="url.Url" lazy>
                     <div slot="placeholder" class="image-slot">
                       加载中
                       <span class="dot">...</span>
@@ -100,60 +100,48 @@
 import Moment from "moment";
 import { fetchData } from "@/api";
 import SliderItem from "@/components/Slider";
+// import SearchMixin from "@/mixins/search";
 export default {
+  // mixins: [SearchMixin],
   data() {
     return {
-      demoData: [
-        {
-          img:
-            "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
-          title: "图片1"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg",
-          title: "图片2"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          title: "图片3"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg",
-          title: "图片4"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg",
-          title: "图片5"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg",
-          title: "图片6"
-        },
-        {
-          img:
-            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
-          title: "图片7"
-        }
-      ]
+      banner:[],
+      excellent: [],
+      student: [],
+      course: []
     };
   },
   components: {
     SliderItem
   },
   methods: {
-    aa() {
-      fetchData("aaaa").then(data => {
-        // console.log(data);
-      });
+    getImage() {
+      fetchData("infoList", { module: 1, page_no: 1, page_size: 10 }).then(
+        data => {
+          // console.log(data);
+          this.banner = data.list;
+        }
+      );
+      fetchData("infoList", { module: 2, page_no: 1, page_size: 10 }).then(
+        data => {
+          // console.log(data);
+          this.excellent = data.list;
+        }
+      );
+      fetchData("infoList", { module: 3, page_no: 1, page_size: 10 }).then(
+        data => {
+          this.course = data.list;
+        }
+      );
+      fetchData("infoList", { module: 4, page_no: 1, page_size: 10 }).then(
+        data => {
+          this.student = data.list;
+        }
+      );
     }
   },
   created() {
-    this.aa();
+    this.getImage();
   }
 };
 </script>
