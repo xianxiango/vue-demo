@@ -17,13 +17,7 @@ module.exports = {
                 // target: 'http://192.168.2.168:8889',
                 // target: 'http://192.168.2.200:8889',
                 // target:  'http://192.168.2.240:8889',
-<<<<<<< HEAD
-                target: 'http://192.168.2.66:8889',
-=======
-                target: 'http://192.168.1.108:8880',
->>>>>>> e5690992bb7509298efb85d0456b2f78a8efbb04
-
-                // target: 'https://mgr.tdex.com:5216',
+                target: 'http://192.168.2.66:8880',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''

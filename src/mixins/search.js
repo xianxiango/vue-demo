@@ -1,7 +1,7 @@
 import { fetchData } from '@/api'
-import { uidCode } from '@/utils/uidCode'
-import { currencyNumber, userType } from '@/utils/tdexMap'
-import { string62to10 } from "@/utils/uidCode";
+// import { uidCode } from '@/utils/uidCode'
+// import { currencyNumber, userType } from '@/utils/tdexMap'
+// import { string62to10 } from "@/utils/uidCode";
 
 export default {
   computed: {
@@ -36,19 +36,7 @@ export default {
       loading: false,
       isSearch: false,
       inputText: '',
-      sizeList: [10, 20, 30],
-      multipleSelection: [],
-      downloadLoading: false,
-      searchShowOrHideText: "显示查询",
-      searchButtonBoolean: false,
-      searchShowOrHide: false,
-      //图标，可根据自己的需求匹配
-      searchIcon: "el-icon-caret-bottom",
-      searchParams: {},
-      string62to10: string62to10,
-      currencyNumber: currencyNumber,
-      userType: userType,
-      currentCoin: {}
+      sizeList: [9, 18, 27],
     }
   },
   methods: {
@@ -131,46 +119,7 @@ export default {
     removeTags(index) {
       this.labelList.splice(index, 1)
     },
-    // // 格式化搜索标签
-    // formatLabelList() {
-    //   const params = {}
-    //   this.labelList.forEach(elm => {
-    //     const item = elm.split(':')
-    //     switch (item[0]) {
-    //       case 'UID':
-    //         params.encode_uids = item[1]
-    //         break
-    //       case 'IP':
-    //         params.ips = item[1]
-    //         break
-    //       case '邮箱':
-    //         params.emails = item[1]
-    //         break
-    //       case '手机':
-    //         params.mobiles = item[1]
-    //         break
-    //       case '时间':
-    //         const formatDate = temp[1].split('~')
-    //         params.start_time = parseInt(new Date(formatDate[0]).getTime() / 1000)
-    //         params.end_time = parseInt(new Date(formatDate[1]).getTime() / 1000)
-    //         break
-    //       case '类型':
-    //         let type = 0
-    //         for (let key in userType) {
-    //           if (item[1] === userType[key]) {
-    //             type = key
-    //           }
-    //         }
-    //         params.user_type = type
-    //         break
 
-    //       default:
-    //         console.log(' >> 无法解析搜索内容...')
-    //         break
-    //     }
-    //   })
-    //   return params
-    // },
     // 获取搜索数据
     fetchSearchData() {
       this.loading = true
@@ -320,31 +269,7 @@ export default {
       })
       return sums
     },
-    // 导出表格
-    handleDownload() {
-      this.downloadLoading = true
-      const callback = excel => {
-        const tHeader = []
-        const filterVal = []
-        this.dynamicTable.forEach(item => {
-          // if (item.value) {
-          // console.log(item.label)
-          tHeader.push(item.label)
-          filterVal.push(item.name)
-          // }
-        })
-        const data = this.formatJson(filterVal, this.list)
-        excel.export_json_to_excel({
-          header: tHeader,
-          data,
-          filename: this.requestUrl
-        })
-        this.downloadLoading = false
-      }
-      import('@/utils/Export2Excel').then(excel => {
-        callback(excel)
-      })
-    },
+
     // 处理JSON数据
     formatJson(filterVal, jsonData) {
       return jsonData.map(v =>
@@ -357,59 +282,7 @@ export default {
         })
       )
     },
-    numFilter(value) {
-      // 截取当前数据到小数点后四位
-      let val
-      let tempVal
-      // console.log(value)
-      if (value < 0) {
-        val = -value
-        tempVal = Math.floor(val * 10000) / 10000
-        tempVal = -tempVal
-      } else {
-        val = value
-        tempVal = Math.floor(val * 10000) / 10000
-      }
 
-
-      return tempVal
-    },
-    numString(value) {
-      var num = new Number(value)
-      num = num.toLocaleString()
-
-
-      return num
-    },
-    searchShow() {
-      if (this.searchButtonBoolean) {
-        this.searchIcon = "el-icon-caret-bottom";
-        this.searchShowOrHideText = "显示查询";
-        // $("#showOrHide").hide();
-        this.searchShowOrHide = false;
-
-        this.searchButtonBoolean = !this.searchButtonBoolean;
-      } else {
-        this.searchShowOrHide = true;
-        this.searchIcon = "el-icon-caret-top";
-        this.searchShowOrHideText = "收起";
-        this.searchButtonBoolean = !this.searchButtonBoolean;
-      }
-    },
-    searchHide() {
-      this.searchIcon = "el-icon-caret-bottom";
-      this.searchShowOrHideText = "显示查询";
-      // $("#showOrHide").hide();
-      this.searchShowOrHide = false;
-
-      this.searchButtonBoolean = !this.searchButtonBoolean;
-    },
-    
-    searchClear() {
-      this.isSearch = false
-      // this.searchHide()
-      this.fetchSearchData()
-    },
 
   },
 
