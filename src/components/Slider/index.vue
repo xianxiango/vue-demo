@@ -3,8 +3,8 @@
     <div :style="containerStyle">
       <div :style="ulStyle" ref="box">
         <div v-for="(item , index) in img_data" :key="index" :style="liStyle">
-          <router-link to="student" :key="item.title">
-            <img :src="item.img" alt class="imgStyle" />
+          <router-link to="student" :key="item.Title">
+            <img :src="item.Url" alt class="imgStyle" />
 
             <!-- <el-image :src="item.img" class="imgStyle" fit="contain">
               <div slot="placeholder" class="image-slot">
@@ -13,7 +13,7 @@
               </div>
             </el-image> -->
           </router-link>
-          <div :style="txtStyle">{{item.title}}</div>
+          <div :style="txtStyle">{{item.Title}}</div>
         </div>
       </div>
     </div>
@@ -102,6 +102,7 @@ export default {
     }
   },
   mounted() {
+    
     this.trans(this.type);
   },
   methods: {

@@ -127,24 +127,24 @@ export const constantRouter = [
         // icon: 'dashboard'
       }
     }]
-  }, {
-    path: '',
-    component: Main,
-    redirect: 'business',
-    meta: {
-      title: '业务范围',
-      icon: 'dashboard'
-    },
-    children: [{
-      path: 'business',
-      component: _import('business/Business'),
-      name: 'business',
-      meta: {
-        title: '业务范围',
-        // icon: 'dashboard'
-      }
-    }]
   },
+  // {
+  //   path: '',
+  //   component: Main,
+  //   redirect: 'business',
+  //   meta: {
+  //     title: '业务范围',
+  //     icon: 'dashboard'
+  //   },
+  //   children: [{
+  //     path: 'business',
+  //     component: _import('business/Business'),
+  //     name: 'business',
+  //     meta: {
+  //       title: '业务范围',
+  //     }
+  //   }]
+  // },
 ]
 
 export const asyncRouter = [
