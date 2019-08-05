@@ -1,6 +1,12 @@
 <template>
   <div class="app-wrapper" :class="classObj">
-    <div class="header" style="height:100px"></div>
+    <div class="header" style="height:100px">
+      <!-- <div class="header-body">
+        <div>
+          <div class="logo">G.M.N STUDIO</div> </div>
+        <div>招生热线：18011784774</div>
+      </div> -->
+    </div>
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div>
     <!-- <el-scrollbar class="sidebar-container" wrapClass="scrollbar-wrapper"> -->
     <el-menu
@@ -16,7 +22,7 @@
       <sidebar-item :routes="routers"></sidebar-item>
     </el-menu>
     <!-- </el-scrollbar> -->
-    
+
     <div class="main-container">
       <!-- <el-menu class="navbar" mode="horizontal">
         <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
@@ -71,9 +77,15 @@
       <div class="footer-box">
         <div class="footer-content"></div>
         <div class="footer-content">
-          <div>联系人：李小姐</div>
-          <div>咨询热线：020-29807360 13719430808 QQ:269952924 微信：eda_lee</div>
-          <div>地址：广州市海珠区艺苑南路13号布衣港电商产业园8栋202（客村地铁D出口） 上海网站建设</div>
+          <div class>
+            <div>联系人：黎先生</div>
+            <div>咨询热线：18011784774</div>
+            <div>QQ:444270394 微信：wg_LWG</div>
+            <div>地址：广州市南沙区金岭北路326号二楼G.M.N STUDIO</div>
+          </div>
+          <div class="footer-content-img">
+            <img class="img" src="static\images\wx.jpg" alt />
+          </div>
         </div>
       </div>
     </div>
@@ -103,39 +115,7 @@ export default {
       oldPsw: "",
       newPsw: "",
       isResetPassword: false,
-      istopMenu: false,
-      demoData: [
-        {
-          img:
-            "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
-          title: "图片1"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg",
-          title: "图片2"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          title: "图片3"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg",
-          title: "图片4"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg",
-          title: "图片5"
-        },
-        {
-          img:
-            "https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg",
-          title: "图片6"
-        }
-      ]
+      istopMenu: false
     };
   },
   computed: {
@@ -193,10 +173,17 @@ export default {
   }
 }
 .footer-content {
+  display: flex;
+  .footer-content-img {
+    margin-left: 20px;
+  }
+  img {
+    width: 80px;
+  }
   div {
     text-align: right;
   }
-  padding-top: 80px;
+  padding-top: 70px;
   flex: 1;
   color: rgb(191, 203, 217);
   font-size: 12px;
@@ -207,5 +194,17 @@ export default {
   width: 100%;
   z-index: 9999;
   top: 0;
+}
+.header-body {
+  margin: 0 auto;
+  width: 1000px;
+  height: 100px;
+  display: flex;
+  div{
+    .logo{
+      font-size: 26px;
+    }
+    flex:1;
+  }
 }
 </style>
