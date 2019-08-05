@@ -1,4 +1,5 @@
 export default {
-  'infoList':'/gmn/info/list',
-  'infoText':'/gmn/info/text'
+  'infoList': '/gmn/info/list',
+  'infoContent': '/gmn/info/content',
+  'infoText': '/gmn/info/text'
 }

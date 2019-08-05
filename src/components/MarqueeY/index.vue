@@ -2,7 +2,7 @@
   <div id="wrap">
     <div id="box">
       <div id="marquee">{{text}}</div>
-      <div id="copy"></div>
+      <!-- <div id="copy"></div> -->
     </div>
     <div id="node">{{text}}</div>
   </div>
@@ -24,8 +24,8 @@ export default {
       let box = document.getElementById("box");
       let boxheight = document.getElementById("box").getBoundingClientRect()
         .height;
-      let copy = document.getElementById("copy");
-      copy.innerText = this.text; // 文字副本填充
+      // let copy = document.getElementById("copy");
+      // copy.innerText = this.text; // 文字副本填充
       let distance = 0; // 位移距离
       //设置位移
       setInterval(function() {

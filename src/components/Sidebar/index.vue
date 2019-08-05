@@ -9,7 +9,7 @@
         </el-menu-item>
       </router-link>-->
       <router-link
-        v-if="hasOneShowingChildren(item.children) && !item.children[0].children&&!item.alwaysShow"
+        v-if="hasOneShowingChildren(item.children) && !item.children[0].children&&!item.alwaysShow&&!item.hidden"
         :to="item.path+'/'+item.children[0].path"
         :key="item.children[0].name"
       >

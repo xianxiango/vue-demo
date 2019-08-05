@@ -11,7 +11,7 @@
             <el-row :gutter="10">
               <el-col :span="8" v-for="o in list" :key="o.Title">
                 <el-card class="img-card" shadow="hover">
-                  <router-link to="student" :key="o.Title">
+                  <router-link :to="'content?id='+o.ID" :key="o.Title">
                     <div class="image">
                       <el-image :src="o.Url" lazy :key="o.Title">
                         <div slot="placeholder" class="image-slot">

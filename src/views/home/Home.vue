@@ -8,7 +8,7 @@
       </el-carousel>-->
       <el-carousel :interval="5000" arrow="always" height="450px">
         <el-carousel-item v-for="item in banner" :key="item.Title">
-          <router-link to="student" :key="item.Title">
+          <router-link :to="'content?id='+item.ID" :key="item.Title">
             <img :src="item.Url" style="width:100%;height:100%" />
           </router-link>
         </el-carousel-item>
@@ -39,7 +39,7 @@
             </div>
             <el-row :gutter="20">
               <el-col :span="8" v-for="url in course" :key="url.Title" class="course-img">
-                <router-link to="student" :key="url.Title">
+                <router-link :to="'content?id='+url.ID" :key="url.Title">
                   <el-image class="course home-image" :key="url.Title" :src="url.Url" lazy>
                     <div slot="placeholder" class="image-slot">
                       加载中
@@ -58,7 +58,7 @@
             </div>
             <el-row :gutter="20">
               <el-col :span="8" v-for="url in student" :key="url.Title" class="course-img">
-                <router-link to="student" :key="url.Title">
+                <router-link :to="'content?id='+url.ID" :key="url.Title">
                   <el-image class="course home-image" :key="url.Title" :src="url.Url" lazy>
                     <div slot="placeholder" class="image-slot">
                       加载中

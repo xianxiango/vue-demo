@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       page: 1,
-      size: 10,
+      size: 9,
       total: 0,
       loading: false,
       isSearch: false,

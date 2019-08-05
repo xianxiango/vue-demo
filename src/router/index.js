@@ -27,6 +27,24 @@ export const constantRouter = [
   {
     path: '',
     component: Main,
+    redirect: 'content',
+    hidden: true,
+    meta: {
+      title: '详情',
+      icon: 'dashboard'
+    },
+    children: [{
+      path: 'content',
+      component: _import('content/Content'),
+      name: 'content',
+      meta: {
+        title: '详情',
+      }
+    }]
+  },
+  {
+    path: '',
+    component: Main,
     redirect: 'synopsis',
     meta: {
       title: '学院简介',

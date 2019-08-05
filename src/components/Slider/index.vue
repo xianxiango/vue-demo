@@ -3,7 +3,7 @@
     <div :style="containerStyle">
       <div :style="ulStyle" ref="box">
         <div v-for="(item , index) in img_data" :key="index" :style="liStyle">
-          <router-link to="student" :key="item.Title">
+          <router-link :to="'content?id='+item.ID" :key="item.Title">
             <img :src="item.Url" alt class="imgStyle" />
 
             <!-- <el-image :src="item.img" class="imgStyle" fit="contain">
