@@ -10,7 +10,7 @@
   >
     <div v-if="image">
       <div class="avatar">
-        <img :src="image">
+        <img :src="image" alt="南沙学化妆 美妆">
       </div>
       <i class="delete el-icon-close" @click.stop="handleDelete"></i>
     </div>

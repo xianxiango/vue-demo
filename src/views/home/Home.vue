@@ -9,7 +9,7 @@
       <el-carousel :interval="5000" arrow="always" height="450px">
         <el-carousel-item v-for="item in banner" :key="item.Title">
           <router-link :to="'content?id='+item.ID" :key="item.Title">
-            <img :src="item.Url" style="width:100%;height:100%" />
+            <img :src="item.Url" style="width:100%;height:100%" alt="南沙学化妆 美妆"/>
           </router-link>
         </el-carousel-item>
       </el-carousel>

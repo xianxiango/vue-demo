@@ -1,11 +1,19 @@
 <template>
   <div class="app-wrapper" :class="classObj">
-    <div class="header" style="height:100px">
-      <!-- <div class="header-body">
+    <div class="header">
+      <div class="header-body">
         <div>
-          <div class="logo">G.M.N STUDIO</div> </div>
-        <div>招生热线：18011784774</div>
-      </div> -->
+          <div class="logo-box">
+            <div class="logo">
+              <div>G.M.N 美妆工作室</div>
+              <div class="en">G.M.N STUDIO</div>
+            </div>
+          </div>
+        </div>
+        <div class="rexian-box">
+          <div class="rexian">招生热线：18011784774</div>
+        </div>
+      </div>
     </div>
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div>
     <!-- <el-scrollbar class="sidebar-container" wrapClass="scrollbar-wrapper"> -->
@@ -84,7 +92,7 @@
             <div>地址：广州市南沙区金岭北路326号二楼G.M.N STUDIO</div>
           </div>
           <div class="footer-content-img">
-            <img class="img" src="static\images\wx.jpg" alt />
+            <img class="img" src="static\images\wx.jpg" alt="南沙学化妆 美妆" />
           </div>
         </div>
       </div>
@@ -195,16 +203,38 @@ export default {
   z-index: 9999;
   top: 0;
 }
+.header {
+  background: #fff;
+}
 .header-body {
   margin: 0 auto;
   width: 1000px;
-  height: 100px;
+  height: 165px;
   display: flex;
-  div{
-    .logo{
-      font-size: 26px;
+  background: #fff;
+  div {
+    .logo-box {
+      height: 165px;
+      display: flex;
+      align-items: center;
+      .logo {
+        padding-left: 30px;
+        font-size: 26px;
+        .en {
+          font-size: 13px;
+        }
+      }
     }
-    flex:1;
+
+    flex: 1;
+  }
+  .rexian-box {
+    display: flex;
+    .rexian {
+      text-align: center;
+      padding-bottom: 30px;
+      align-self: flex-end;
+    }
   }
 }
 </style>
