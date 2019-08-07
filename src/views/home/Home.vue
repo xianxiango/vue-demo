@@ -137,7 +137,7 @@ export default {
           this.course = data.list;
         }
       );
-      fetchData("infoList", { module: 4, page_no: 1, page_size: 6 }).then(
+      fetchData("infoList", { module: 8, page_no: 1, page_size: 6 }).then(
         data => {
           this.student = data.list;
         }
