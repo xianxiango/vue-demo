@@ -90,6 +90,9 @@
             <div>咨询热线：18011784774</div>
             <div>QQ:444270394 微信：wg_LWG</div>
             <div>地址：广州市南沙区金岭北路326号二楼G.M.N STUDIO</div>
+            <div>
+              <a href="http://beian.miit.gov.cn/">粤ICP备19100392号</a>
+            </div>
           </div>
           <div class="footer-content-img">
             <img class="img" src="static\images\wx.jpg" alt="南沙学化妆 美妆" />
@@ -186,12 +189,12 @@ export default {
     margin-left: 20px;
   }
   img {
-    width: 80px;
+    width: 100px;
   }
   div {
     text-align: right;
   }
-  padding-top: 70px;
+  padding-top: 55px;
   flex: 1;
   color: rgb(191, 203, 217);
   font-size: 12px;
