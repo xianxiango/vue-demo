@@ -9,7 +9,7 @@ NProgress.configure({ showSpinner: false })
 // const isLogin = Cookies.get('auth')
 
 const currentHost = window.location.host.split('.')
-const hostConfig = "G.M.N 美妆造型工作室"
+const hostConfig = "G.M.N 美妆造型工作室--南沙学化妆"
 store.commit('SET_HOST_CONFIG', hostConfig)
 
 router.beforeEach((to, from, next) => {

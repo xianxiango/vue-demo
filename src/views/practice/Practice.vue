@@ -50,12 +50,8 @@
             <span>最新公告</span>
           </div>
           <div class="notice">
-            <!-- <marquee direction="up" scrollamount="5">
-                <div v-model="notice">
-                </div>
-                
-            </marquee>-->
-            <marqueeY :lists="notice" v-if="notice!=''" />
+            <div class="notice">{{notice}}</div>
+            <!-- <marqueeY :lists="notice" v-if="notice!=''" /> -->
           </div>
         </el-card>
         <el-card shadow="hover" class="margin-top">
